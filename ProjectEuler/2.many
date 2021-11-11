@@ -1,0 +1,202 @@
+Print: 4613732
+Python:
+	limit = 4000000
+	total, a, b = 0, 1, 2
+	while a < limit:
+		if a % 2 == 0:
+			total += a
+		a, b = b, a + b
+	print(total)
+
+JavaScript:
+	const limit = 4000000;
+	let total = 0, a = 1, b = 1;
+	while (a < limit) {
+		if (a % 2 === 0) total += a;
+		[a, b] = [b, a + b];
+	}
+	console.log(total)
+
+Java:
+	class PE {
+		public static void main(String[] args) {
+			int limit = 4000000;
+			int total = 0, a = 1, b = 2;
+			while (a < limit) {
+				if (a % 2 == 0) {
+					total += a;
+				}
+				int sum = a + b;
+				a = b;
+				b = sum;
+			}
+			System.out.println(total);
+		}
+	}
+
+C#:
+	class PE {
+		static void Main(string[] args) {
+			int limit = 4000000;
+			int total = 0, a = 1, b = 2;
+			while (a < limit) {
+				if (a % 2 == 0) {
+					total += a;
+				}
+				int sum = a + b;
+				a = b;
+				b = sum;
+			}
+			System.Console.WriteLine(total);
+		}
+	}
+
+C:
+	#include <stdio.h>
+	int main() {
+		int limit = 4000000;
+		int total = 0, a = 1, b = 2;
+		while (a < limit) {
+			if (a % 2 == 0) {
+				total += a;
+			}
+			int sum = a + b;
+			a = b;
+			b = sum;
+		}
+		printf("%d\n", total);
+	}
+
+C++:
+	#include <iostream>
+	using namespace std;
+	int main() {
+		int limit = 4000000;
+		int total = 0, a = 1, b = 2;
+		while (a < limit) {
+			if (a % 2 == 0) {
+				total += a;
+			}
+			a += b;
+			swap(a, b);
+		}
+		cout << total << endl;
+	}
+
+Ruby:
+	limit = 4000000
+	total, a, b = 0, 1, 2
+	while a < limit
+		if a.even?
+			total += a
+		end
+		a, b = b, a + b
+	end
+	puts total
+
+PHP:
+	<?php
+		$limit = 4000000;
+		$total = 0; $a = 1; $b = 2;
+		while ($a < $limit) {
+			if ($a % 2 == 0) {
+				$total += $a;
+			}
+			$sum = $a + $b;
+			$a = $b;
+			$b = $sum;
+		}
+		echo $total;
+	?>
+
+R:
+	limit <- 4000000
+	total <- 0
+	a <- 1
+	b <- 2
+	while (a < limit) {
+		if (a %% 2 == 0) {
+			total <- total + a
+		}
+		sum <- a + b
+		a <- b
+		b <- sum
+	}
+	cat(total, '\n', sep='')
+
+Rust:
+	fn main() {
+		let limit = 4000000;
+		let (mut total, mut a, mut b) = (0, 1, 2);
+		while a < limit {
+			if a % 2 == 0 {
+				total += a;
+			}
+			let sum = a + b;
+			a = b;
+			b = sum;
+		}
+		println!("{}", total);
+	}
+
+Racket:
+	#lang racket
+	(define limit 4000000)
+	(define (f total a b)
+		(if (< a limit)
+			(f (if (even? a) (+ a total) total) b (+ a b))
+			total
+		)
+	)
+	(display (string-append (~a (f 0 1 2)) "\n"))
+
+Haskell:
+	limit = 4000000
+	f total a b = do
+		if a < limit
+		then f (if (mod a 2 == 0) then (a + total) else total) b (a + b)
+		else total
+	main = print(f 0 1 2)
+
+Go:
+	package main
+	import "fmt"
+	func main() {
+		const limit = 4000000
+		var total, a, b = 0, 1, 2
+		for a < limit {
+			if (a % 2 == 0) { 
+				total += a
+			}
+			a, b = b, a + b
+		}
+		fmt.Println(total)
+	}
+
+Dart:
+	void main() {
+		const limit = 4000000;
+		var total = 0, a = 1, b = 2;
+		while (a < limit) {
+			if (a.isEven) {
+				total += a;
+			}
+			var sum = a + b;
+			a = b;
+			b = sum;
+		}
+		print(total);
+	}
+
+Kotlin:
+	fun main() {
+		val limit = 4000000;
+		var (total, a, b) = listOf(0, 1, 2)
+		while (a < limit) {
+			if (a % 2 == 0) {
+				total += a
+			}
+			a = b.also {b = a + b}
+		}
+		println(total)
+	}

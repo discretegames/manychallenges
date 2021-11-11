@@ -1,0 +1,170 @@
+Print: 233168
+Python:
+	limit = 1000
+	def t(n):
+		return n*(n+1)//2
+	def f(n):
+		return n * t((limit - 1) // n)
+	print(f(3) + f(5) - f(15))
+
+JavaScript:
+	const limit = 1000
+	function t(n) {
+		return Math.floor(n*(n+1)/2)
+	}
+	function f(n) {
+		return n * t(Math.floor((limit - 1) / n))
+	}
+	console.log(f(3) + f(5) - f(15))
+
+Java:
+	class PE {
+		private static final int limit = 1000;
+		private static int t(int n) {
+			return n * (n + 1) / 2;
+		}
+		private static int f(int n) {
+			return n * t((limit - 1) / n);
+		}
+		public static void main(String[] args) {
+			System.out.println(f(3) + f(5) - f(15));
+		}
+	}
+
+C#:
+	class PE {
+		const int limit = 1000;
+		static int t(int n) {
+			return n * (n + 1) / 2;
+		}
+		static int f(int n) {
+			return n * t((limit - 1) / n);
+		}
+		static void Main(string[] args) {
+			System.Console.WriteLine(f(3) + f(5) - f(15));
+		}
+	}
+
+C:
+	#include <stdio.h>
+	int const limit = 1000;
+	int t(int n) {
+		return n * (n + 1) / 2;
+	}
+	int f(int n) {
+		return n * t((limit - 1) / n);
+	}
+	int main() {
+		printf("%d\n", f(3) + f(5) - f(15));
+	}
+
+C++:
+	#include <iostream>
+	using namespace std;
+	const int limit = 1000;
+	int t(int n) {
+		return n * (n + 1) / 2;
+	}
+	int f(int n) {
+		return n * t((limit - 1) / n);
+	}
+	int main() {
+		cout << f(3) + f(5) - f(15) << endl;
+	}
+
+Ruby:
+	$limit = 1000
+	def t(n)
+		n * (n + 1) / 2
+	end
+	def f(n)
+		n * t(($limit - 1) / n)
+	end
+	puts f(3) + f(5) - f(15)
+
+PHP:
+	<?php
+		$limit = 1000;
+		function t($n) {
+			return intdiv($n * ($n + 1), 2);
+		}
+		function f($n) {
+			global $limit;
+			return $n * t(intdiv($limit - 1, $n));
+		}
+		echo f(3) + f(5) - f(15);
+	?>
+
+R:
+	limit <- 1000
+	t <- function(n) {
+		return((n * (n + 1)) %/% 2)
+	}
+	f <- function(n) {
+		return(n * t((limit - 1) %/% n))
+	}
+	cat(f(3) + f(5) - f(15), '\n', sep='')
+
+Rust:
+	static limit: i32 = 1000;
+	fn t(n: i32) -> i32 {
+		return n * (n + 1) / 2;
+	}
+	fn f(n: i32) -> i32 {
+		return n * t((limit - 1) / n);
+	}
+	fn main() {
+		println!("{}", f(3) + f(5) - f(15));
+	}
+
+Racket:
+	#lang racket
+	(define limit 1000)
+	(define (t n) (quotient (* n (+ n 1)) 2))
+	(define (f n) (* n (t (quotient (- limit 1) n))))
+	(display (string-append (~a (- (+ (f 3) (f 5)) (f 15))) "\n"))
+
+
+Haskell:
+	limit = 1000
+	t n = n * (n + 1) `div` 2
+	f n = n * t((limit - 1) `div` n)
+	main = print(f(3) + f(5) - f(15))
+
+Go:
+	package main
+	import "fmt"
+	const limit = 1000
+	func t(n int) int {
+		return n * (n + 1) / 2;
+	}
+	func f(n int) int {
+		return n * t((limit - 1) / n)
+	}
+	func main() {
+		fmt.Println(f(3) + f(5) - f(15))
+	}
+
+Dart:
+	const limit = 1000;
+	int t(int n) {
+		return n * (n + 1) ~/ 2;
+	}
+	int f(int n) {
+		return n * t((limit - 1) ~/ n);
+	}
+	void main() {
+		print(f(3) + f(5) - f(15));
+	}
+
+Kotlin:
+	val limit = 1000;
+	fun t(n: Int): Int {
+		return n * (n + 1) / 2;
+	}
+	fun f(n: Int): Int {
+		return n * t((limit - 1) / n)
+	}
+	fun main() {
+		println(f(3) + f(5) - f(15))
+	}

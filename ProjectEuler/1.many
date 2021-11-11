@@ -1,0 +1,171 @@
+Print: 233168
+Python:
+	stop = 1000
+	total = 0
+	for i in range(stop):
+		if i % 3 == 0 or i % 5 == 0:
+			total += i
+	print(total)
+
+JavaScript:
+	const stop = 1000;
+	let total = 0;
+	for (let i = 0; i < stop; i++) {
+		if (i % 3 == 0 || i % 5 == 0) {
+			total += i;
+		}
+	}
+	console.log(total)
+
+Java:
+	class PE {
+		public static void main(String[] args) {
+			int stop = 1000;
+			int total = 0;
+			for (int i = 0; i < stop; i++) {
+				if (i % 3 == 0 || i % 5 == 0) {
+					total += i;
+				}
+			}
+			System.out.println(total);
+		}
+	}
+
+C#:
+	class PE {
+		static void Main(string[] args)	{
+			int stop = 1000;
+			int total = 0;
+			for (int i = 0; i < stop; i++) {
+				if (i % 3 == 0 || i % 5 == 0) {
+					total += i;
+				}
+			}
+			System.Console.WriteLine(total);
+		}
+	}
+
+C:
+	#include <stdio.h>
+	int main() {
+		int stop = 1000;
+		int total = 0;
+		for (int i = 0; i < stop; i++) {
+			if (i % 3 == 0 || i % 5 == 0) {
+				total += i;
+			}
+		}
+		printf("%d\n", total);
+	}
+
+C++:
+	#include <iostream>
+	using namespace std;
+	int main() {
+		int stop = 1000;
+		int total = 0;
+		for (int i = 0; i < stop; i++) {
+			if (i % 3 == 0 || i % 5 == 0) {
+				total += i;
+			}
+		}
+		cout << total << endl;
+	}
+
+Ruby:
+	stop = 1000
+	total = 0
+	for i in 0..stop-1 do
+		if i % 3 == 0 || i % 5 == 0 then
+			total += i
+		end
+	end
+	puts total
+
+PHP:
+	<?php
+		$stop = 1000;
+		$total = 0;
+		for ($i = 0; $i < 1000; $i++) {
+			if ($i % 3 == 0 || $i % 5 == 0) {
+				$total += $i;
+			}
+		}
+		echo $total;
+	?>
+
+R:
+	stop <- 1000
+	total <- 0
+	for (i in 0:stop-1) {
+		if (i %% 3 == 0 | i %% 5 == 0) {
+			total <- total + i
+		}
+	}
+	cat(total, '\n', sep='')
+
+Rust:
+	fn main() {
+		let stop = 1000;
+		let mut total = 0;
+
+		for i in 0..stop {
+			if i % 3 == 0 || i % 5 == 0 {
+				total += i;
+			}
+		}
+		println!("{}", total);
+	}
+
+Racket:
+	#lang racket
+	(define stop 1000)
+	(define total 0)
+	(for ([i stop])
+		(if	(or (equal? (remainder i 3) 0) (equal? (remainder i 5) 0))
+			(set! total (+ total i)) 0
+		)
+	)
+	(display (string-append (~a total) "\n"))
+
+Haskell:
+	main = print (pe1 1000)
+	pe1 stop = sum [x | x <- [1..stop-1], mod x 3 == 0 || mod x 5 == 0]
+
+Go:
+	package main
+	import "fmt"
+	func main() {
+		const stop = 1000
+		var total = 0
+		for i := 0; i < stop; i++ {
+			if i % 3 == 0 || i % 5 == 0 {
+				total += i
+			}
+		}
+		fmt.Println(total)
+	}
+
+Dart:
+	void main() {
+		const stop = 1000;
+		var total = 0;
+		for (var i = 0; i < stop; i++) {
+			if (i % 3 == 0 || i % 5 == 0) {
+				total += i;
+			}
+		}
+		print(total);
+	}
+
+Kotlin:
+	fun main() {
+		val stop = 1000
+		var total = 0
+		for (i in 0..stop-1) {
+			if (i % 3 == 0 || i % 5 == 0) {
+				total += i
+			}
+		}
+		println(total)
+	}
