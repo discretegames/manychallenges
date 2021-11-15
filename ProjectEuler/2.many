@@ -139,25 +139,6 @@ Rust:
 		println!("{}", total);
 	}
 
-Racket:
-	#lang racket
-	(define limit 4000000)
-	(define (f total a b)
-		(if (< a limit)
-			(f (if (even? a) (+ a total) total) b (+ a b))
-			total
-		)
-	)
-	(display (string-append (~a (f 0 1 2)) "\n"))
-
-Haskell:
-	limit = 4000000
-	f total a b = do
-		if a < limit
-		then f (if (mod a 2 == 0) then (a + total) else total) b (a + b)
-		else total
-	main = print(f 0 1 2)
-
 Go:
 	package main
 	import "fmt"
@@ -200,3 +181,22 @@ Kotlin:
 		}
 		println(total)
 	}
+
+Racket:
+	#lang racket
+	(define limit 4000000)
+	(define (f total a b)
+		(if (< a limit)
+			(f (if (even? a) (+ a total) total) b (+ a b))
+			total
+		)
+	)
+	(display (string-append (~a (f 0 1 2)) "\n"))
+
+Haskell:
+	limit = 4000000
+	f total a b = do
+		if a < limit
+		then f (if (mod a 2 == 0) then (a + total) else total) b (a + b)
+		else total
+	main = print(f 0 1 2)

@@ -117,20 +117,6 @@ Rust:
 		println!("{}", f(3) + f(5) - f(15));
 	}
 
-Racket:
-	#lang racket
-	(define limit 1000)
-	(define (t n) (quotient (* n (+ n 1)) 2))
-	(define (f n) (* n (t (quotient (- limit 1) n))))
-	(display (string-append (~a (- (+ (f 3) (f 5)) (f 15))) "\n"))
-
-
-Haskell:
-	limit = 1000
-	t n = n * (n + 1) `div` 2
-	f n = n * t((limit - 1) `div` n)
-	main = print(f(3) + f(5) - f(15))
-
 Go:
 	package main
 	import "fmt"
@@ -168,3 +154,17 @@ Kotlin:
 	fun main() {
 		println(f(3) + f(5) - f(15))
 	}
+
+Racket:
+	#lang racket
+	(define limit 1000)
+	(define (t n) (quotient (* n (+ n 1)) 2))
+	(define (f n) (* n (t (quotient (- limit 1) n))))
+	(display (string-append (~a (- (+ (f 3) (f 5)) (f 15))) "\n"))
+
+
+Haskell:
+	limit = 1000
+	t n = n * (n + 1) `div` 2
+	f n = n * t((limit - 1) `div` n)
+	main = print(f(3) + f(5) - f(15))

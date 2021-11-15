@@ -75,7 +75,7 @@ C++:
 Ruby:
 	stop = 1000
 	total = 0
-	for i in 0..stop-1 do
+	for i in 0..stop-1
 		if i % 3 == 0 || i % 5 == 0 then
 			total += i
 		end
@@ -117,21 +117,6 @@ Rust:
 		println!("{}", total);
 	}
 
-Racket:
-	#lang racket
-	(define stop 1000)
-	(define total 0)
-	(for ([i stop])
-		(if	(or (equal? (remainder i 3) 0) (equal? (remainder i 5) 0))
-			(set! total (+ total i)) 0
-		)
-	)
-	(display (string-append (~a total) "\n"))
-
-Haskell:
-	main = print (pe1 1000)
-	pe1 stop = sum [x | x <- [1..stop-1], mod x 3 == 0 || mod x 5 == 0]
-
 Go:
 	package main
 	import "fmt"
@@ -169,3 +154,18 @@ Kotlin:
 		}
 		println(total)
 	}
+
+Racket:
+	#lang racket
+	(define stop 1000)
+	(define total 0)
+	(for ([i stop])
+		(if	(or (equal? (remainder i 3) 0) (equal? (remainder i 5) 0))
+			(set! total (+ total i)) 0
+		)
+	)
+	(display (string-append (~a total) "\n"))
+
+Haskell:
+	main = print (pe1 1000)
+	pe1 stop = sum [x | x <- [1..stop-1], mod x 3 == 0 || mod x 5 == 0]

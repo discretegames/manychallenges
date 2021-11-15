@@ -99,30 +99,6 @@ Rust:
 		println!("{}", f)
 	}
 
-Racket:
-	#lang racket
-	(define (helper f n)
-		(if (equal? n 1)
-			f
-			(if (equal? (modulo n f) 0)
-				(helper f (quotient n f))
-				(helper (add1 f) n)
-			)
-		)
-	)
-	(display (string-append (~a (helper 2 600851475143)) "\n"))
-
-Haskell:
-	helper f n =
-		if n == 1
-		then f
-		else (
-			if (mod n f == 0)
-			then (helper f (div n f))
-			else (helper (f + 1) n)
-		)
-	main = print(helper 2 600851475143)
-
 Go:
 	package main
 	import "fmt"
@@ -156,3 +132,27 @@ Kotlin:
 		}
 		println(f);
 	}
+
+Racket:
+	#lang racket
+	(define (helper f n)
+		(if (equal? n 1)
+			f
+			(if (equal? (modulo n f) 0)
+				(helper f (quotient n f))
+				(helper (add1 f) n)
+			)
+		)
+	)
+	(display (string-append (~a (helper 2 600851475143)) "\n"))
+
+Haskell:
+	helper f n =
+		if n == 1
+		then f
+		else (
+			if (mod n f == 0)
+			then (helper f (div n f))
+			else (helper (f + 1) n)
+		)
+	main = print(helper 2 600851475143)
