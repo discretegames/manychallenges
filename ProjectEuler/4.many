@@ -48,30 +48,52 @@ Also:
 	}
 	console.log(largest);
 
-Java:
-	class PE {
-		private static boolean isPalindrome(String s) {
-			for (int i = 0; i < s.length() / 2; i++) {
-				if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
-					return false;
-				}
-			}
-			return true;
-		}
+Ruby:
+	def is_palindrome(s)
+		return s == s.reverse
+	end
+	largest = 0
+	for n1 in 100...1000
+		for n2 in n1...1000
+			n = n1 * n2
+			if is_palindrome n.to_s and n > largest
+				largest = n
+			end
+		end
+	end
+	puts largest
 
-		public static void main(String[] args) {
-			int largest = 0;
-			for (int n1 = 100; n1 < 1000; n1++) {
-				for (int n2 = n1; n2 < 1000; n2++) {
-					int n = n1 * n2;
-					if (isPalindrome(Integer.toString(n))) {
-						largest = Math.max(largest, n);
-					}
+PHP:
+	<?php
+		function isPalindrome($s) {
+			return $s == strrev($s);
+		}
+		$largest = 0;
+		for ($n1 = 100; $n1 < 1000; $n1++) {
+			for ($n2 = $n1; $n2 < 1000; $n2++) {
+				$n = $n1 * $n2;
+				if (isPalindrome(strval($n))) {
+					$largest = max($largest, $n);
 				}
 			}
-			System.out.println(largest);
+		}
+		echo $largest;
+	?>
+
+R:
+	isPalindrome <- function(s) {
+		return(s == paste(rev(strsplit(s, "")[[1]]), collapse=""))
+	}
+	largest <- 0
+	for (n1 in 100:999) {
+		for (n2 in n1:999) {
+			n <- n1 * n2
+			if (isPalindrome(toString(n))) {
+				largest <- max(largest, n)
+			}
 		}
 	}
+	cat(largest, '\n', sep='')
 
 C#:
 	using System;
@@ -97,6 +119,66 @@ C#:
 			}
 			System.Console.WriteLine(largest);
 		}
+	}
+
+Java:
+	class PE {
+		private static boolean isPalindrome(String s) {
+			for (int i = 0; i < s.length() / 2; i++) {
+				if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		public static void main(String[] args) {
+			int largest = 0;
+			for (int n1 = 100; n1 < 1000; n1++) {
+				for (int n2 = n1; n2 < 1000; n2++) {
+					int n = n1 * n2;
+					if (isPalindrome(Integer.toString(n))) {
+						largest = Math.max(largest, n);
+					}
+				}
+			}
+			System.out.println(largest);
+		}
+	}
+
+Kotlin:
+	fun isPalindrome(s: String): Boolean {
+		return s == s.reversed();
+	}
+	fun main() {
+		var largest = 0;
+		for (n1 in 100..999) {
+			for (n2 in n1..999) {
+				var n = n1 * n2;
+				if (isPalindrome(n.toString())) {
+					largest = Math.max(largest, n);
+				}
+			}
+		}
+		println(largest);
+	}
+
+Dart:
+	import 'dart:math';
+	bool isPalindrome(String s) {
+		return s == s.split('').reversed.join('');
+	}
+	void main() {
+		var largest = 0;
+		for (var n1 = 100; n1 < 1000; n1++) {
+			for (var n2 = n1; n2 < 1000; n2++) {
+				var n = n1 * n2;
+				if (isPalindrome(n.toString())) {
+					largest = max(largest, n);
+				}
+			}
+		}
+		print(largest);
 	}
 
 C:
@@ -157,70 +239,6 @@ C++:
 		cout << largest << endl;
 	}
 
-Ruby:
-	def is_palindrome(s)
-		return s == s.reverse
-	end
-	largest = 0
-	for n1 in 100...1000
-		for n2 in n1...1000
-			n = n1 * n2
-			if is_palindrome n.to_s and n > largest
-				largest = n
-			end
-		end
-	end
-	puts largest
-
-PHP:
-	<?php
-		function isPalindrome($s) {
-			return $s == strrev($s);
-		}
-		$largest = 0;
-		for ($n1 = 100; $n1 < 1000; $n1++) {
-			for ($n2 = $n1; $n2 < 1000; $n2++) {
-				$n = $n1 * $n2;
-				if (isPalindrome(strval($n))) {
-					$largest = max($largest, $n);
-				}
-			}
-		}
-		echo $largest;
-	?>
-
-R:
-	isPalindrome <- function(s) {
-		return(s == paste(rev(strsplit(s, "")[[1]]), collapse=""))
-	}
-	largest <- 0
-	for (n1 in 100:999) {
-		for (n2 in n1:999) {
-			n <- n1 * n2
-			if (isPalindrome(toString(n))) {
-				largest <- max(largest, n)
-			}
-		}
-	}
-	cat(largest, '\n', sep='')
-
-Rust:
-	fn is_palindrome(s: &str) -> bool {
-		return s.eq(&s.chars().rev().collect::<String>());
-	}
-	fn main() {
-		let mut largest = 0;
-		for n1 in 100..1000 {
-			for n2 in n1..1000 {
-				let n = n1 * n2;
-				if (is_palindrome(&n.to_string())) {
-					largest = largest.max(n);
-				}
-			}
-		}
-		println!("{}", largest);
-	}
-
 Go:
 	package main
 	import ("strconv"
@@ -246,40 +264,31 @@ Go:
 		fmt.Println(largest)
 	}
 
-Dart:
-	import 'dart:math';
-	bool isPalindrome(String s) {
-		return s == s.split('').reversed.join('');
+
+Rust:
+	fn is_palindrome(s: &str) -> bool {
+		return s.eq(&s.chars().rev().collect::<String>());
 	}
-	void main() {
-		var largest = 0;
-		for (var n1 = 100; n1 < 1000; n1++) {
-			for (var n2 = n1; n2 < 1000; n2++) {
-				var n = n1 * n2;
-				if (isPalindrome(n.toString())) {
-					largest = max(largest, n);
+	fn main() {
+		let mut largest = 0;
+		for n1 in 100..1000 {
+			for n2 in n1..1000 {
+				let n = n1 * n2;
+				if (is_palindrome(&n.to_string())) {
+					largest = largest.max(n);
 				}
 			}
 		}
-		print(largest);
+		println!("{}", largest);
 	}
 
-Kotlin:
-	fun isPalindrome(s: String): Boolean {
-		return s == s.reversed();
-	}
-	fun main() {
-		var largest = 0;
-		for (n1 in 100..999) {
-			for (n2 in n1..999) {
-				var n = n1 * n2;
-				if (isPalindrome(n.toString())) {
-					largest = Math.max(largest, n);
-				}
-			}
-		}
-		println(largest);
-	}
+Haskell:
+	largest = maximum [n | n1<-[100..999],
+						   n2<-[n1..999],
+						   let n = n1 * n2,
+						   let s = show n,
+						   s == reverse s]
+	main = print largest
 
 Racket:
 	#lang racket
@@ -295,11 +304,3 @@ Racket:
 		)
 	))
 	(display "\n")
-
-Haskell:
-	largest = maximum [n | n1<-[100..999],
-						   n2<-[n1..999],
-						   let n = n1 * n2,
-						   let s = show n,
-						   s == reverse s]
-	main = print largest

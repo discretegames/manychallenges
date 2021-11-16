@@ -16,50 +16,6 @@ JavaScript:
 	}
 	console.log(f)
 
-Java:
-	class PE {
-		public static void main(String[] args) {
-			long f = 2, n = 600851475143L;
-			while (n != 1) {
-				if (n % f != 0) f++; else n /= f;
-			}
-			System.out.println(f);
-		}
-	}
-
-C#:
-	class PE {
-		static void Main(string[] args) {
-			long f = 2, n = 600851475143L;
-			while (n != 1) {
-				if (n % f != 0) f++; else n /= f;
-			}
-			System.Console.WriteLine(f);
-		}
-	}
-
-C:
-	#include <stdio.h>
-	#include <limits.h>
-	int main() {
-		long long f = 2, n = 600851475143;
-		while (n != 1) {
-			if (n % f != 0) f++; else n /= f;
-		}
-		printf("%lld\n", f);
-	}
-
-C++:
-	#include <iostream>
-	using namespace std;
-	int main() {
-		long long f = 2, n = 600851475143;
-		while (n != 1) {
-			if (n % f != 0) f++; else n /= f;
-		}
-		cout << f << endl;
-	}
-
 Ruby:
 	f, n = 2, 600851475143
 	while n != 1
@@ -85,18 +41,67 @@ R:
 	}
 	cat(f, '\n', sep='')
 
-Rust:
-	fn main() {
-		let mut n: i64 = 600851475143;
-		let mut f = 2;
-		while n != 1 {
-			if (n % f != 0) {
-				f += 1;
-			} else {
-				n /= f;
+C#:
+	class PE {
+		static void Main(string[] args) {
+			long f = 2, n = 600851475143L;
+			while (n != 1) {
+				if (n % f != 0) f++; else n /= f;
 			}
+			System.Console.WriteLine(f);
 		}
-		println!("{}", f)
+	}
+
+Java:
+	class PE {
+		public static void main(String[] args) {
+			long f = 2, n = 600851475143L;
+			while (n != 1) {
+				if (n % f != 0) f++; else n /= f;
+			}
+			System.out.println(f);
+		}
+	}
+
+Kotlin:
+	fun main() {
+		var n: Long = 600851475143L;
+		var f: Long = 2;
+		while (n != 1L) {
+			if (n % f != 0L) f++; else n /= f;
+		}
+		println(f);
+	}
+
+Dart:
+	void main() {
+		var f = 2, n = 600851475143;
+		while (n != 1) {
+			if (n % f != 0) f++; else n ~/= f;
+		}
+		print(f);
+	}
+
+C:
+	#include <stdio.h>
+	#include <limits.h>
+	int main() {
+		long long f = 2, n = 600851475143;
+		while (n != 1) {
+			if (n % f != 0) f++; else n /= f;
+		}
+		printf("%lld\n", f);
+	}
+
+C++:
+	#include <iostream>
+	using namespace std;
+	int main() {
+		long long f = 2, n = 600851475143;
+		while (n != 1) {
+			if (n % f != 0) f++; else n /= f;
+		}
+		cout << f << endl;
 	}
 
 Go:
@@ -114,24 +119,30 @@ Go:
 		fmt.Println(f)
 	}
 
-Dart:
-	void main() {
-		var f = 2, n = 600851475143;
-		while (n != 1) {
-			if (n % f != 0) f++; else n ~/= f;
+Rust:
+	fn main() {
+		let mut n: i64 = 600851475143;
+		let mut f = 2;
+		while n != 1 {
+			if (n % f != 0) {
+				f += 1;
+			} else {
+				n /= f;
+			}
 		}
-		print(f);
+		println!("{}", f)
 	}
 
-Kotlin:
-	fun main() {
-		var n: Long = 600851475143L;
-		var f: Long = 2;
-		while (n != 1L) {
-			if (n % f != 0L) f++; else n /= f;
-		}
-		println(f);
-	}
+Haskell:
+	helper f n =
+		if n == 1
+		then f
+		else (
+			if (mod n f == 0)
+			then (helper f (div n f))
+			else (helper (f + 1) n)
+		)
+	main = print(helper 2 600851475143)
 
 Racket:
 	#lang racket
@@ -145,14 +156,3 @@ Racket:
 		)
 	)
 	(display (string-append (~a (helper 2 600851475143)) "\n"))
-
-Haskell:
-	helper f n =
-		if n == 1
-		then f
-		else (
-			if (mod n f == 0)
-			then (helper f (div n f))
-			else (helper (f + 1) n)
-		)
-	main = print(helper 2 600851475143)

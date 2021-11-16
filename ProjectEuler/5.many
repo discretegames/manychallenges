@@ -11,12 +11,8 @@ Also:
 		return a
 	def lcm(a, b):
 		return abs(a * b) // gcd(a, b)
-	def lcm_nums(nums):
-		m = 1
-		for num in nums:
-			m = lcm(m, num)
-		return m
-	print(lcm_nums(range(1, n+1)))
+	from functools import reduce
+	print(reduce(lcm, range(1, n+1)))
 Also:
 	n = 20
 	def gcd(a, b):
@@ -25,8 +21,12 @@ Also:
 		return a
 	def lcm(a, b):
 		return abs(a * b) // gcd(a, b)
-	from functools import reduce
-	print(reduce(lcm, range(1, n+1)))
+	def lcm_nums(nums):
+		m = 1
+		for num in nums:
+			m = lcm(m, num)
+		return m
+	print(lcm_nums(range(1, n+1)))
 
 % PYTHON:
 
