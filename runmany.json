@@ -1,9 +1,4 @@
 {
-	"spacing": 0,
-	"show_code": false,
-	"show_commands": true,
-	"languages": [
-		{ "name": "Print", "command": "type" },
-		{ "name": "Bash", "command": "bash ./$name", "ext": ".sh" }
-	]
+	"minimalist": true,
+	"spacing": 0
 }

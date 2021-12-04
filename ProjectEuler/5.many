@@ -1,4 +1,5 @@
 Print: 232792560
+
 Python:
 	n = 20
 	from math import lcm
@@ -28,11 +29,5 @@ Also:
 		return m
 	print(lcm_nums(range(1, n+1)))
 
-% PYTHON:
-
-% END.
-
-% JAVASCRIPT, PYTHON:
-
-% END.
+%% TODO other languages
 	

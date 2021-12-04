@@ -1,5 +1,6 @@
-% Some of these may only work on 64-bit systems.
+%% Some of these may only work on 64-bit systems.
 Print: 6857
+
 Python:
 	f, n = 2, 600851475143
 	while n != 1:
@@ -30,7 +31,7 @@ PHP:
 		while ($n != 1) {
 			if ($n % $f != 0) $f++; else $n = intdiv($n, $f);
 		}
-		echo $f;
+		echo $f . "\n";
 	?>
 
 R:

@@ -1,4 +1,5 @@
 Print: 233168
+
 Python:
 	stop = 1000
 	total = 0
@@ -61,7 +62,7 @@ PHP:
 				$total += $i;
 			}
 		}
-		echo $total;
+		echo $total . "\n";
 	?>
 Also:
 	<?php
@@ -73,7 +74,7 @@ Also:
 			global $limit;
 			return $n * t(intdiv($limit - 1, $n));
 		}
-		echo f(3) + f(5) - f(15);
+		echo f(3) + f(5) - f(15) . "\n";
 	?>
 
 R:

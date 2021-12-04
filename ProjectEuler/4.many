@@ -1,4 +1,5 @@
 Print: 906609
+
 Python:
 	def is_palindrome(s):
 		return s == s[::-1]
@@ -77,7 +78,7 @@ PHP:
 				}
 			}
 		}
-		echo $largest;
+		echo $largest . "\n";
 	?>
 
 R:
