@@ -15,7 +15,7 @@ pip install runmany --upgrade
 runmany project-euler/1.many
 ```
 
-This will run [project-euler/1.many](https://github.com/discretegames/manychallenges/blob/main/ProjectEuler/1.many)
+This will run [project-euler/1.many](https://github.com/discretegames/manychallenges/blob/main/project-euler/1.many)
 which solves [Project Euler challenge 1](https://projecteuler.net/problem=1) in 15 different languages, each in 2 ways.
 
 Open the .many files in [VSCode](https://code.visualstudio.com/) and install the
@@ -24,5 +24,5 @@ to easily run the solutions in an IDE with syntax highlighting.
 
 ## Solution Folders
 
-[Project Euler](https://github.com/discretegames/manychallenges/tree/main/ProjectEuler)
+- [**Project Euler**](https://github.com/discretegames/manychallenges/tree/main/project-euler)
 (for [projecteuler.net](https://projecteuler.net/archives))
