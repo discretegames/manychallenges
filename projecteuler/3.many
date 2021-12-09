@@ -1,0 +1,161 @@
+%% Solutions to https://projecteuler.net/problem=3. Run this file with runmany: https://pypi.org/project/runmany
+
+%% Some of these may only work on 64-bit systems.
+Print: 6857
+
+Python:
+	f, n = 2, 600851475143
+	while n != 1:
+		if n % f:
+			f += 1
+		else:
+			n //= f
+	print(f)
+
+JavaScript:
+	let f = 2, n = 600851475143;
+	while (n != 1) {
+		if (n % f != 0)	f++; else n = Math.floor(n / f);
+	}
+	console.log(f)
+
+Ruby:
+	f, n = 2, 600851475143
+	while n != 1
+		if n % f != 0 then f += 1 else n /= f end
+	end
+	puts(f)
+
+PHP:
+	<?php
+		$n = 600851475143;
+		$f = 2;
+		while ($n != 1) {
+			if ($n % $f != 0) $f++; else $n = intdiv($n, $f);
+		}
+		echo $f . "\n";
+	?>
+
+R:
+	n <- 600851475143
+	f <- 2
+	while (n != 1) {
+		if (n %% f != 0) f <- f + 1 else n <- n %/% f
+	}
+	cat(f, '\n', sep='')
+
+C#:
+	class PE {
+		static void Main(string[] args) {
+			long f = 2, n = 600851475143L;
+			while (n != 1) {
+				if (n % f != 0) f++; else n /= f;
+			}
+			System.Console.WriteLine(f);
+		}
+	}
+
+Java:
+	class PE {
+		public static void main(String[] args) {
+			long f = 2, n = 600851475143L;
+			while (n != 1) {
+				if (n % f != 0) f++; else n /= f;
+			}
+			System.out.println(f);
+		}
+	}
+
+Kotlin:
+	fun main() {
+		var n: Long = 600851475143L;
+		var f: Long = 2;
+		while (n != 1L) {
+			if (n % f != 0L) f++; else n /= f;
+		}
+		println(f);
+	}
+
+Dart:
+	void main() {
+		var f = 2, n = 600851475143;
+		while (n != 1) {
+			if (n % f != 0) f++; else n ~/= f;
+		}
+		print(f);
+	}
+
+C:
+	#include <stdio.h>
+	#include <limits.h>
+	int main() {
+		long long f = 2, n = 600851475143;
+		while (n != 1) {
+			if (n % f != 0) f++; else n /= f;
+		}
+		printf("%lld\n", f);
+	}
+
+C++:
+	#include <iostream>
+	using namespace std;
+	int main() {
+		long long f = 2, n = 600851475143;
+		while (n != 1) {
+			if (n % f != 0) f++; else n /= f;
+		}
+		cout << f << endl;
+	}
+
+Go:
+	package main
+	import "fmt"
+	func main() {
+		var f, n int64 = 2, 600851475143
+		for n != 1 {
+			if (n % f != 0) {
+				f++
+			} else {
+				n /= f
+			}
+		}
+		fmt.Println(f)
+	}
+
+Rust:
+	fn main() {
+		let mut n: i64 = 600851475143;
+		let mut f = 2;
+		while n != 1 {
+			if (n % f != 0) {
+				f += 1;
+			} else {
+				n /= f;
+			}
+		}
+		println!("{}", f)
+	}
+
+Haskell:
+	helper f n =
+		if n == 1
+		then f
+		else (
+			if (mod n f == 0)
+			then (helper f (div n f))
+			else (helper (f + 1) n)
+		)
+	main = print(helper 2 600851475143)
+
+Racket:
+	#lang racket
+	(define (helper f n)
+		(if (equal? n 1)
+			f
+			(if (equal? (modulo n f) 0)
+				(helper f (quotient n f))
+				(helper (add1 f) n)
+			)
+		)
+	)
+	(display (string-append (~a (helper 2 600851475143)) "\n"))
