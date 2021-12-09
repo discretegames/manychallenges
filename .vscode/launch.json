@@ -9,7 +9,6 @@
 			"type": "runmany",
 			"request": "launch",
 			"program": "${file}",
-			"settingsFile": "runmany.json"
 		}
 	]
 }

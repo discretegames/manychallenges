@@ -1,6 +1,8 @@
 {
-	"cSpell.words": [
-		"manychallenges",
-		"projecteuler"
-	]
+    "cSpell.words": [
+        "manychallenges",
+        "projecteuler",
+        "adventofcode"
+    ],
+    "editor.insertSpaces": true
 }

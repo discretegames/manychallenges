@@ -26,5 +26,8 @@ for syntax highlighting support and to easily run the .many files with F5 (or wh
 
 ## Solution Folders
 
-- [**Project Euler**](https://github.com/discretegames/manychallenges/tree/main/project-euler)
+- [**Project Euler**](https://github.com/discretegames/manychallenges/tree/main/projecteuler)
 (for [projecteuler.net](https://projecteuler.net/archives))
+
+- [**Advent Of Code**](https://github.com/discretegames/manychallenges/tree/main/adventofcode)
+(for [adventofcode.com](https://adventofcode.com/))
