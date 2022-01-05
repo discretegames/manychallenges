@@ -2,6 +2,9 @@
 
 Settings: {"cwd": "adventofcode/2021"}
 
+Argv: 1t.txt
+Also: 1.txt
+
 Python:
     def solver(nums, s):
         return sum(a < b for a,b in zip(nums, nums[s:]))
@@ -12,10 +15,12 @@ Python:
     def p2(nums):
         return solver(nums, 3)
 
-    with open('1.txt') as file:
+    import sys
+    with open(sys.argv[1]) as file:
         nums = [int(n) for n in file.readlines()]
     print(p1(nums))
     print(p2(nums))
+
 
 JavaScript:
     function solver(nums, s) {
@@ -34,9 +39,10 @@ JavaScript:
     }
 
     const fs = require('fs');;
-    const nums = fs.readFileSync('1.txt', 'utf8').split('\n').map(n => parseInt(n));
+    const nums = fs.readFileSync(process.argv[2], 'utf8').split('\n').map(n => parseInt(n));
     console.log(p1(nums));
     console.log(p2(nums))
+
 
 C#:
     using System;
@@ -59,7 +65,7 @@ C#:
         }
 
         static void Main(string[] args)    {
-            int[] nums = Array.ConvertAll(File.ReadAllText("1.txt").Split('\n'), n => int.Parse(n));
+            int[] nums = Array.ConvertAll(File.ReadAllText(args[0]).Split('\n'), n => int.Parse(n));
             System.Console.WriteLine(P1(nums));
             System.Console.WriteLine(P2(nums));
         }
@@ -83,7 +89,7 @@ C:
         return solver(nums, length, 3);
     }
 
-    int main()
+    int main(int argc, char *argv[])
     {
         int length = 0;
         int size = 8;
@@ -91,7 +97,7 @@ C:
 
         FILE* file;
         char n[32];
-        file = fopen("1.txt", "r");
+        file = fopen(argv[1], "r");
         while(fgets(n, 32, file)) {
             if (length + 1 == size) {
                 size *= 2;
@@ -105,6 +111,7 @@ C:
         printf("%d\n", p2(nums, length));
         free(nums);
     }
+
 
 Rust:
     fn solver(nums: &Vec<i32>, s: usize) -> i32 {
@@ -124,7 +131,7 @@ Rust:
     }
 
     fn main() {
-        let file = std::fs::read_to_string("1.txt").expect("bad file");
+        let file = std::fs::read_to_string(std::env::args().nth(1).unwrap()).expect("bad file");
         let nums: Vec<i32> = file.lines().map(|n| n.parse().unwrap()).collect();
         println!("{}", p1(&nums));
         println!("{}", p2(&nums));
@@ -132,10 +139,12 @@ Rust:
 
 Haskell:
     {-# LANGUAGE TypeApplications #-}
+    import System.Environment
     solver nums s = sum [1 | (a, b) <- zip nums (drop s nums), a < b]
     p1 nums = solver nums 1
     p2 nums = solver nums 3
     main = do
-        nums <- map (read @Int) . words <$> readFile "1.txt"
+        arg <- head <$> getArgs
+        nums <- map (read @Int) . words <$> readFile arg
         print $ p1 nums
         print $ p2 nums
