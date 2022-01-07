@@ -5,6 +5,7 @@ Settings: {"cwd": "adventofcode/2021"}
 Argv: 1t.txt
 Also: 1.txt
 
+
 Python:
     def solver(nums, s):
         return sum(a < b for a,b in zip(nums, nums[s:]))
@@ -38,16 +39,50 @@ JavaScript:
         return solver(nums, 3);
     }
 
-    const fs = require('fs');;
+    const fs = require('fs');
     const nums = fs.readFileSync(process.argv[2], 'utf8').split('\n').map(n => parseInt(n));
     console.log(p1(nums));
-    console.log(p2(nums))
+    console.log(p2(nums));
+
+
+Java:
+    import java.util.*;
+    import java.nio.file.*;
+    import java.io.IOException;
+    import java.util.stream.Collectors;
+
+    public class AoC {
+
+        private static int solver(List<Integer> nums, int s) {
+            int count = 0;
+            for (int i = s; i < nums.size(); i++) {
+                count += nums.get(i) > nums.get(i-s) ? 1 : 0;
+            }
+            return count;
+        }
+
+        private static int p1(List<Integer> nums) {
+            return AoC.solver(nums, 1);
+        }
+
+        private static int p2(List<Integer> nums) {
+            return AoC.solver(nums, 3);
+        }
+
+        public static void main(String[] args) {
+            try {
+                var nums = Files.lines(Paths.get(args[0])).map(Integer::parseInt).collect(Collectors.toList());;
+                System.out.println(AoC.p1(nums));
+                System.out.println(AoC.p2(nums));
+            } catch (IOException e) {}
+        }
+    }
 
 
 C#:
     using System;
     using System.IO;
-    class PE {
+    class AoC {
         static int Solver(int[] nums, int s) {
             var count = 0;
             for (var i = s; i < nums.Length; i++) {
@@ -136,6 +171,7 @@ Rust:
         println!("{}", p1(&nums));
         println!("{}", p2(&nums));
     }
+
 
 Haskell:
     {-# LANGUAGE TypeApplications #-}

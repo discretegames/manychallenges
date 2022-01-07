@@ -1,0 +1,29 @@
+%% Solutions to https://adventofcode.com/2021/day/NUM. Run this file with runmany: https://pypi.org/project/runmany
+
+Settings: {"cwd": "adventofcode/2021"}
+
+Argv: NUMt.txt
+Also: NUM.txt
+
+
+Python:
+
+
+
+JavaScript:
+
+
+
+Java:
+
+
+
+C#:
+
+
+
+C:
+
+
+
+Rust:

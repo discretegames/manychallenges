@@ -1,0 +1,87 @@
+%% Solutions to https://adventofcode.com/2021/day/2. Run this file with runmany: https://pypi.org/project/runmany
+
+Settings: {"cwd": "adventofcode/2021"}
+
+Argv: 2t.txt
+Also: 2.txt
+
+Python:
+    def p1(data):
+        x = y = 0
+        for cmd, amt in data:
+            if cmd == 'forward':
+                x += amt
+            elif cmd == 'down':
+                y += amt
+            else:
+                y -= amt
+        return x * y
+
+    def p2(data):
+        x = y = aim = 0
+        for cmd, amt in data:
+            if cmd == 'down':
+                aim += amt
+            elif cmd == 'up':
+                aim -= amt
+            else:
+                x += amt
+                y += aim * amt
+        return x * y
+        
+    import sys
+    with open(sys.argv[1]) as file:
+        data = [(cmd, int(amt)) for cmd, amt in map(str.split, file)]
+
+    print(p1(data))
+    print(p2(data))
+
+
+JavaScript:
+    function p1(data) {
+        let x = 0, y = 0;
+        for (const [cmd, amt] of data) {
+            if (cmd === 'forward') x += amt;
+            else if (cmd === 'down') y += amt;
+            else y -= amt;
+        }
+        return x * y;
+    }
+
+    function p2(data) {
+        let x = 0, y = 0, aim = 0;
+        for (const [cmd, amt] of data) {
+            if (cmd === 'down') aim += amt;
+            else if (cmd === 'up') aim -= amt;
+            else {
+                x += amt;
+                y += aim * amt;
+            }
+        }
+        return x * y;
+    }
+
+    const fs = require('fs');;
+    const data = fs.readFileSync(process.argv[2], 'utf8').split('\n').map(line => {
+        const [cmd, amt] = line.split(' ');
+        return [cmd, parseInt(amt)]; 
+    });
+
+    console.log(p1(data))
+    console.log(p2(data))
+
+
+Java:
+
+
+
+
+C#:
+
+
+
+C:
+
+
+
+Rust:
