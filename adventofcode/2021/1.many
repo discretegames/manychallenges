@@ -71,7 +71,7 @@ Java:
 
         public static void main(String[] args) {
             try {
-                var nums = Files.lines(Paths.get(args[0])).map(Integer::parseInt).collect(Collectors.toList());;
+                var nums = Files.lines(Paths.get(args[0])).map(Integer::parseInt).collect(Collectors.toList());
                 System.out.println(AoC.p1(nums));
                 System.out.println(AoC.p2(nums));
             } catch (IOException e) {}

@@ -72,12 +72,100 @@ JavaScript:
 
 
 Java:
+    import java.util.*;
+    import java.nio.file.*;
+    import java.io.IOException;
+    import java.util.stream.Collectors;
 
+    public class AoC {
 
+        private static int p1(List<String[]> data) {
+            int x = 0, y = 0;
+            for (String[] d : data) {
+                String cmd = d[0];
+                int amt = Integer.parseInt(d[1]);
+                if (cmd.equals("forward")) {
+                    x += amt;
+                } else if (cmd.equals("down")) {
+                    y += amt;
+                } else {
+                    y -= amt;
+                }
+            }
+            return x * y;
+        }
+
+        private static int p2(List<String[]> data) {
+            int x = 0, y = 0, aim = 0;
+            for (var d : data) {
+                var cmd = d[0];
+                var amt = Integer.parseInt(d[1]);
+                if (cmd.equals("down")) {
+                    aim += amt;
+                } else if (cmd.equals("up")) {
+                    aim -= amt;
+                } else {
+                    x += amt;
+                    y += aim * amt;
+                }
+            }
+            return x * y;
+        }
+
+        public static void main(String[] args) {
+            try {
+                var data = Files.lines(Paths.get(args[0])).map(line -> line.split(" ")).collect(Collectors.toList());
+                System.out.println(AoC.p1(data));
+                System.out.println(AoC.p2(data));
+            } catch (IOException e) {}
+        }
+    }
 
 
 C#:
+    using System;
+    using System.IO;
+    class AoC {
 
+        static int P1(string[][] data) {
+            int x = 0, y = 0;
+            foreach(var d in data) {
+                var cmd = d[0];
+                var amt = Int32.Parse(d[1]);
+                if (cmd.Equals("forward")) {
+                    x += amt;
+                } else if (cmd.Equals("down")) {
+                    y += amt;
+                } else {
+                    y -= amt;
+                }
+            }
+            return x * y;
+        }
+
+        static int P2(string[][] data) {
+            int x = 0, y = 0, aim = 0;
+            foreach(var d in data) {
+                var cmd = d[0];
+                var amt = Int32.Parse(d[1]);
+                if (cmd.Equals("down")) {
+                    aim += amt;
+                } else if (cmd.Equals("up")) {
+                    aim -= amt;
+                } else {
+                    x += amt;
+                    y += aim * amt;
+                }
+            }
+            return x * y;
+        }
+
+        static void Main(string[] args)    {
+            var data = Array.ConvertAll(File.ReadAllText(args[0]).Split('\n'), line => line.Split(' '));
+            System.Console.WriteLine(P1(data));
+            System.Console.WriteLine(P2(data));
+        }
+    }
 
 
 C:
