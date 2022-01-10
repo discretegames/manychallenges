@@ -230,3 +230,43 @@ C:
 
 
 Rust:
+    fn p1(data: &Vec<(char, i32)>) -> i32 {
+        let (mut x, mut y) = (0, 0);
+        for &(cmd, amt) in data.iter() {
+            if cmd == 'f' {
+                x += amt;
+            } else if cmd == 'd' {
+                y += amt;
+            } else {
+                y -= amt;
+            }
+        }
+        x * y
+    }
+
+    fn p2(data: &Vec<(char, i32)>) -> i32 {
+        let (mut x, mut y, mut aim) = (0, 0, 0);
+        for &(cmd, amt) in data.iter() {
+            if cmd == 'd' {
+                aim += amt;
+            } else if cmd == 'u' {
+                aim -= amt;
+            } else {
+                x += amt;
+                y += aim * amt;
+            }
+        }
+        x * y
+    }
+
+
+    fn main() {
+        let file = std::fs::read_to_string(std::env::args().nth(1).unwrap()).expect("bad file");
+        let data: Vec<(char, i32)> = file.lines().map(|line| -> (char, i32) {
+            let split = line.split(" ").collect::<Vec<_>>();
+            (split[0].chars().next().unwrap(), split[1].parse().unwrap())
+        }).collect();
+
+        println!("{}", p1(&data));
+        println!("{}", p2(&data));
+    }
