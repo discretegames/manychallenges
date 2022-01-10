@@ -169,7 +169,64 @@ C#:
 
 
 C:
+    #include <stdio.h>
+    #include <string.h>
+    #include <stdlib.h>
 
+    int p1(char *cmds, int *amts, int length) {
+        int x = 0, y = 0;
+        for (int i = 0; i < length; i++) {
+            if (cmds[i] == 'f') {
+                x += amts[i];
+            } else if (cmds[i] == 'd') {
+                y += amts[i];
+            } else {
+                y -= amts[i];
+            }
+        }
+        return x * y;
+    }
+    
+    int p2(char *cmds, int *amts, int length) {
+        int x = 0, y = 0, aim = 0;
+        for (int i = 0; i < length; i++) {
+            if (cmds[i] == 'd') {
+                aim += amts[i];
+            } else if (cmds[i] == 'u') {
+                aim -= amts[i];
+            } else {
+                x += amts[i];
+                y += aim * amts[i];
+            }
+        }
+        return x * y;
+    }
+
+    int main(int argc, char *argv[])
+    {
+        int length = 0, size = 1;
+        char *cmds = malloc(sizeof(char) * size);
+        int *amts = malloc(sizeof(int) * size);
+
+        char line[32];
+        FILE* file = fopen(argv[1], "r");
+
+        while(fgets(line, 32, file)) {
+            if (length + 1 == size) {
+                size *= 2;
+                cmds = realloc(cmds, sizeof(char) * size);
+                amts = realloc(amts, sizeof(int) * size);
+            }
+            cmds[length] = strtok(line, " ")[0];
+            amts[length++] = atoi(strtok(NULL, ""));
+        }
+        fclose(file);
+
+        printf("%d\n", p1(cmds, amts, length));
+        printf("%d\n", p2(cmds, amts, length));
+        free(amts);
+        free(cmds);
+    }
 
 
 Rust:

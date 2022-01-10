@@ -108,6 +108,8 @@ C#:
 
 C:
     #include <stdio.h>
+    #include <stdlib.h>
+
     int solver(int *nums, int length, int s) {
         int count = 0;
         for(int i = s; i < length; i++) {
@@ -126,13 +128,12 @@ C:
 
     int main(int argc, char *argv[])
     {
-        int length = 0;
-        int size = 8;
+        int length = 0, size = 1;
         int *nums = malloc(sizeof(int) * size);
 
-        FILE* file;
         char n[32];
-        file = fopen(argv[1], "r");
+        FILE* file = fopen(argv[1], "r");
+        
         while(fgets(n, 32, file)) {
             if (length + 1 == size) {
                 size *= 2;
